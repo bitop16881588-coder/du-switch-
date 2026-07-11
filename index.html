@@ -1501,6 +1501,9 @@ let MASTER_PW='';
 /* 想跨装置永久生效，把「设定 → 👤 帐号 → 设定码」产生的内容贴进这个阵列即可。範例：
    {u:"tommy", salt:"...", iv:"...", ct:"...", iter:150000}  */
 const USERS_BAKED = [
+  {u:"早", salt:"6Sr6eMrHkUwpt/qguir4vg==", iv:"JbrXR/jRLy6wD1sU", ct:"HmPCF1KuyuPP/4LmNEhJRZtKivk=", iter:150000},
+  {u:"中", salt:"3YN4Z2iYeaLftrIwRwsVjQ==", iv:"9q7rWxmXdFwbZtgJ", ct:"l/RJIYc46/QNCPJrKK7SO0lcaKk=", iter:150000},
+  {u:"晚", salt:"oZ26/Gte3sm21aSQfbaZuw==", iv:"3m97kJ4d+zPay7ER", ct:"WvB2MDa2Q5OqxZNoBMoeHvFglxI=", iter:150000}
 ];
 const USERS_LS_KEY='du_users';
 function lsUsers(){ try{ return JSON.parse(localStorage.getItem(USERS_LS_KEY))||[]; }catch(e){ return []; } }
