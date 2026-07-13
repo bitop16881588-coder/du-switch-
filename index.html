@@ -465,6 +465,7 @@
       </div>
       <div class="stats">
         <button class="hd-userbtn" id="usersBtn" title="使用者帐号：早／中／晚">👤 帐号</button>
+        <button class="hd-userbtn" id="logoutBtn" title="切换班别 / 登出（回到登入画面重选）">🔁 切换班别</button>
         <div class="stat s-use"><div class="n" id="s-use">0</div><div class="l">使用中</div></div>
         <div class="stat s-unused"><div class="n" id="s-unused">0</div><div class="l">不使用</div></div>
         <span class="sync off" id="syncStat" title="点击立即与云端同步"><span class="sdot"></span><span id="syncTxt">仅本机</span></span>
@@ -1583,6 +1584,14 @@ function renderUserList(){
   document.getElementById('user-copy').addEventListener('click',()=>{
     const t=document.getElementById('userSnippet'); const val=t.value; t.select();
     (navigator.clipboard?navigator.clipboard.writeText(val):Promise.reject()).then(()=>toast('已复制设定码')).catch(()=>{ try{document.execCommand('copy');}catch(_){}toast('已复制设定码'); });
+  });
+})();
+(function initLogout(){
+  const b=document.getElementById('logoutBtn'); if(!b) return;
+  b.addEventListener('click',()=>{
+    if(typeof confirm==='function' && !confirm('切换班别／登出？\n将回到登入画面，请重新选择班别或用主密码登入。')) return;
+    try{ localStorage.removeItem('du_pw'); localStorage.removeItem('du_user'); }catch(e){}
+    location.reload();
   });
 })();
 (function initUsersModal(){
