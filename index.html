@@ -1492,7 +1492,7 @@ async function tryDecrypt(pass){
     const key=await deriveKey(pass);
     const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64ToBytes(ENC.iv)},key,b64ToBytes(ENC.ct));
     const obj=JSON.parse(new TextDecoder().decode(pt));
-    DATA=obj.data||[]; SYNC_URL=obj.url||''; TOKEN=obj.token||'';
+    DATA=obj.data||[]; SYNC_URL="https://script.google.com/macros/s/AKfycbxazyIVlP2Vu5w7EjckzMdxXN3zHuvJm6-ppIdjxuQAC3mxme7PSZFARwMVMITUEtAl/exec"; TOKEN="du4-3f151d11ba1cb43c2a787458";
     return true;
   }catch(e){ return false; }
 }
